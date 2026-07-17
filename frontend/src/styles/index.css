@@ -11,10 +11,10 @@
   --color-text-muted: #71717a;
 
   --color-border-subtle: #27272a;
-  --color-border-focus: #10b981;
+  --color-border-focus: #f4f4f5;
 
-  --color-brand-primary: #10b981;
-  --color-brand-primary-hover: #059669;
+  --color-brand-primary: #fafafa;
+  --color-brand-primary-hover: #e4e4e7;
 
   /* Design Tokens - Status Colors (Accessible pairings) */
   --color-status-success: #34d399; /* emerald-400 */
@@ -59,4 +59,9 @@
 
   /* Design Tokens - Transitions */
   --transition-standard: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
 }
