@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card } from '@/components/ui/Card'
 import { Divider } from '@/components/ui/Divider'
-import { Button } from '@/components/ui/Button'
 import { StatusIndicator } from '@/components/shared/StatusIndicator'
 
 export interface MachineCardProps {
@@ -9,42 +8,60 @@ export interface MachineCardProps {
   mission: string
   version: string
   status: 'active' | 'inactive' | 'loading'
-  statusLabel: string
-  devStatus: string
+  statusLabel?: string
+  devStatus?: string
+  lightColor?: 'red' | 'green' | 'yellow'
+  litCount?: number
   technologies: string[]
   architecture: string[]
   whyItExists: string
   futureDirection: string
+  thumbnailUrl?: string
 }
 
 export const MachineCard: React.FC<MachineCardProps> = ({
   name,
   mission,
   version,
-  status,
-  statusLabel,
-  devStatus,
+  lightColor,
+  litCount,
   technologies,
   architecture,
   whyItExists,
   futureDirection,
+  thumbnailUrl,
 }) => {
   return (
-    <Card className="flex flex-col justify-between" aria-label={`Specifications board for ${name}`}>
+    <Card
+      className="flex flex-col justify-between p-5 md:p-6"
+      aria-label={`Specifications board for ${name}`}
+    >
       <div className="flex flex-col gap-4 font-sans text-sm">
+        {/* Project Thumbnail Image Container */}
+        <div className="group border-border-subtle bg-bg-surface rounded-medium relative mb-2 h-44 w-full overflow-hidden border sm:h-48">
+          {thumbnailUrl ? (
+            <img
+              src={thumbnailUrl}
+              alt={`${name} project thumbnail`}
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div className="text-text-muted flex h-full w-full items-center justify-center bg-zinc-900/80 font-mono text-xs">
+              <span>[ THUMBNAIL PLACEHOLDER ]</span>
+            </div>
+          )}
+        </div>
+
         {/* Header Grid */}
         <div className="flex items-start justify-between">
           <div className="flex flex-col gap-1">
-            <h3 className="text-text-primary font-mono text-sm font-semibold">{name}</h3>
-            <span className="text-text-muted font-mono text-[9px]">{version}</span>
+            <h3 className="text-text-primary font-mono text-base font-bold tracking-wider">
+              {name}
+            </h3>
+            <span className="text-text-muted font-mono text-[10px]">{version}</span>
           </div>
-          <StatusIndicator label={statusLabel} status={status} />
-        </div>
-
-        {/* Development Stage */}
-        <div className="text-text-secondary inline-flex items-center gap-1.5 font-mono text-[10px] font-medium">
-          <span className="text-text-muted">STAGE:</span>
-          <span className="text-brand-primary">{devStatus}</span>
+          <StatusIndicator color={lightColor} litCount={litCount} />
         </div>
 
         {/* Mission statement */}
@@ -93,12 +110,6 @@ export const MachineCard: React.FC<MachineCardProps> = ({
             ))}
           </div>
         </div>
-      </div>
-
-      <div className="mt-6">
-        <Button variant="outline" className="w-full">
-          Enter Machine
-        </Button>
       </div>
     </Card>
   )

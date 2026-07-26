@@ -10,13 +10,13 @@ export const Navigation: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState<number>(0)
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
-  // WELCOME link is removed from navigation items; centered title is mapped to scroll home
+  // Links mapped directly to Section Title IDs
   const links: NavLink[] = [
-    { id: 'garage', label: 'THE GARAGE', href: '#garage' },
-    { id: 'driver-profile', label: 'DRIVER', href: '#driver-profile' },
-    { id: 'engineering', label: 'ENGINEERING', href: '#engineering' },
-    { id: 'radio-room', label: 'RADIO ROOM', href: '#radio-room' },
-    { id: 'checkered-flag', label: 'FINISH', href: '#checkered-flag' },
+    { id: 'garage-title', label: 'THE GARAGE', href: '#garage-title' },
+    { id: 'driver-profile-title', label: 'DRIVER', href: '#driver-profile-title' },
+    { id: 'engineering-title', label: 'ENGINEERING', href: '#engineering-title' },
+    { id: 'radio-room-title', label: 'RADIO ROOM', href: '#radio-room-title' },
+    { id: 'checkered-flag-title', label: 'FINISH', href: '#checkered-flag-title' },
   ]
 
   // Track scroll progress percentage

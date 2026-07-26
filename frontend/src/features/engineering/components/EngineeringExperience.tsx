@@ -33,24 +33,21 @@ export const EngineeringExperience: React.FC = () => {
   ]
 
   return (
-    <section
-      id="engineering"
-      className="flex flex-col gap-4"
-      aria-labelledby="engineering-experience-heading"
-    >
+    <section id="engineering" className="flex flex-col gap-6" aria-labelledby="engineering-title">
       <ScrollReveal direction="up">
         <SectionHeader
-          id="engineering-experience-heading"
+          id="engineering-title"
           title="ENGINEERING EXPERIENCE"
           subtitle="Core standards and system development guidelines"
+          className="scroll-mt-28"
         />
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {protocols.map((protocol, index) => (
           <ScrollReveal key={protocol.title} direction="up" delay={index * 100}>
             <Card
-              className="flex h-full flex-col gap-2 font-sans text-sm"
+              className="flex h-full flex-col gap-2 p-5 font-sans text-sm md:p-6"
               aria-label={`Engineering protocol: ${protocol.title}`}
             >
               <h3 className="text-text-primary font-mono text-xs font-bold tracking-wider uppercase">

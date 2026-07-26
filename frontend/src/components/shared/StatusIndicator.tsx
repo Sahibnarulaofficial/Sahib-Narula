@@ -1,29 +1,51 @@
 import React from 'react'
 
-interface StatusIndicatorProps {
-  label: string
-  status: 'active' | 'inactive' | 'loading'
+export interface StatusIndicatorProps {
+  color?: 'red' | 'green' | 'yellow'
+  litCount?: number
+  status?: 'active' | 'inactive' | 'loading'
 }
 
-export const StatusIndicator: React.FC<StatusIndicatorProps> = ({ label, status }) => {
-  const statusColors = {
-    active: 'bg-status-success-bg text-status-success border-status-success-border',
-    inactive: 'bg-status-info-bg text-status-info border-status-info-border',
-    loading: 'bg-status-warning-bg text-status-warning border-status-warning-border animate-pulse',
-  }
+export const StatusIndicator: React.FC<StatusIndicatorProps> = ({
+  color = 'red',
+  litCount = 4,
+}) => {
+  const totalLights = 5
 
-  const dotColors = {
-    active: 'bg-status-success',
-    inactive: 'bg-status-info',
-    loading: 'bg-status-warning',
+  const lightStyles = {
+    red: {
+      lit: 'bg-[radial-gradient(ellipse_at_30%_30%,#fca5a5_0%,#ef4444_45%,#7f1d1d_100%)] shadow-[0_0_8px_rgba(239,68,68,0.7)] border-red-400/40 animate-pulse',
+      unlit: 'bg-zinc-900/90 border-zinc-800/80 shadow-inner',
+    },
+    green: {
+      lit: 'bg-[radial-gradient(ellipse_at_30%_30%,#86efac_0%,#22c55e_45%,#14532d_100%)] shadow-[0_0_8px_rgba(34,197,94,0.7)] border-emerald-400/40 animate-pulse',
+      unlit: 'bg-zinc-900/90 border-zinc-800/80 shadow-inner',
+    },
+    yellow: {
+      lit: 'bg-[radial-gradient(ellipse_at_30%_30%,#fde047_0%,#eab308_45%,#713f12_100%)] shadow-[0_0_8px_rgba(234,179,8,0.7)] border-yellow-400/40 animate-pulse',
+      unlit: 'bg-zinc-900/90 border-zinc-800/80 shadow-inner',
+    },
   }
 
   return (
     <div
-      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-xs font-medium ${statusColors[status]}`}
+      className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800/80 bg-zinc-950/90 px-2.5 py-1.5 shadow-md backdrop-blur-xs"
+      aria-label={`Race start light status: ${color}`}
+      title={`START LIGHTS: ${color.toUpperCase()}`}
     >
-      <span className={`h-2 w-2 rounded-full ${dotColors[status]}`} />
-      <span>{label}</span>
+      {Array.from({ length: totalLights }).map((_, index) => {
+        const isLit = index < litCount
+        const currentStyle = lightStyles[color]
+
+        return (
+          <span
+            key={index}
+            className={`h-2.5 w-2.5 rounded-full border transition-all duration-300 ${
+              isLit ? currentStyle.lit : currentStyle.unlit
+            }`}
+          />
+        )
+      })}
     </div>
   )
 }

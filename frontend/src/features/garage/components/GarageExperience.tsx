@@ -10,7 +10,9 @@ export const GarageExperience: React.FC = () => {
       mission: 'AI Meeting Copilot Platform',
       version: 'v1.0.0',
       status: 'active',
-      statusLabel: 'SHIPPING',
+      statusLabel: 'IN PRODUCTION',
+      lightColor: 'red',
+      litCount: 2,
       devStatus: 'ACTIVE PRODUCTION',
       technologies: ['React', 'TypeScript', 'Node.js', 'LLMs', 'WebRTC'],
       architecture: [
@@ -22,13 +24,16 @@ export const GarageExperience: React.FC = () => {
         'To transform raw spoken discussions into structured, action-oriented engineering specifications, removing manual summarization delays and alignment friction.',
       futureDirection:
         'Integrating autonomous repository scaffolding to generate schema changes, DB migrations, and boilerplate API routes directly from voice transcripts.',
+      thumbnailUrl: '/images/Projects%20Thumbnail/Aptlyst%20AI/Car.png',
     },
     {
       name: 'REVIVEOPS AI',
       mission: 'Agentic Workflow Optimizer',
       version: 'v0.8.0-beta',
       status: 'active',
-      statusLabel: 'TESTING',
+      statusLabel: 'ONLINE',
+      lightColor: 'green',
+      litCount: 5,
       devStatus: 'BETA TESTING',
       technologies: ['Python', 'Go', 'Kubernetes', 'Prometheus'],
       architecture: [
@@ -40,13 +45,16 @@ export const GarageExperience: React.FC = () => {
         'To actively scan server system infrastructure logs, anticipate hardware limits, and resolve bottlenecks before they impact users, safeguarding uptime.',
       futureDirection:
         'Expanding predictive auto-scaling triggers to dynamically shift server load allocations across cloud provider regions.',
+      thumbnailUrl: '/images/Projects%20Thumbnail/ReviveOps%20AI/Car.png',
     },
     {
       name: 'FUTURE SYSTEM - ALPHA',
       mission: 'Autonomous Protocol Engine',
       version: 'v0.1.0',
       status: 'loading',
-      statusLabel: 'STAGING',
+      statusLabel: 'UPCOMING',
+      lightColor: 'yellow',
+      litCount: 5,
       devStatus: 'CONCEPT / IN PLANNING',
       technologies: ['Rust', 'WASM', 'Git'],
       architecture: [
@@ -58,24 +66,27 @@ export const GarageExperience: React.FC = () => {
         'To safely check, compile, and merge code updates across multiple repositories automatically, ensuring zero integration failures and instant verification.',
       futureDirection:
         'Developing local WebAssembly compile sandboxes to confirm syntax and lint checks instantly inside the browser environment before commit pushes.',
+      thumbnailUrl: '/images/Projects%20Thumbnail/Upcoming/Car.png',
     },
   ]
 
   return (
     <section
       id="garage"
-      className="flex flex-col gap-4 lg:min-h-[calc(100vh-140px)] lg:justify-center"
-      aria-labelledby="garage-heading"
+      className="flex flex-col gap-6 lg:min-h-[calc(100vh-140px)] lg:justify-center"
+      aria-labelledby="garage-title"
     >
       <ScrollReveal direction="up">
         <SectionHeader
-          id="garage-heading"
+          id="garage-title"
           title="GARAGE EXPERIENCE"
           subtitle="Engineered systems designed for precision, performance, and scale"
+          className="scroll-mt-28"
         />
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+      {/* Widened Grid Layout for Machine Cards */}
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {machines.map((machine, index) => (
           <ScrollReveal key={machine.name} direction="left" delay={index * 150}>
             <MachineCard {...machine} />
