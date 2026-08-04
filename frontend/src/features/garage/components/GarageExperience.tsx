@@ -88,7 +88,7 @@ export const GarageExperience: React.FC = () => {
       {/* Widened Grid Layout for Machine Cards */}
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {machines.map((machine, index) => (
-          <ScrollReveal key={machine.name} direction="left" delay={index * 150}>
+          <ScrollReveal key={machine.name} direction="left" delay={index * 150} className="h-full">
             <MachineCard {...machine} />
           </ScrollReveal>
         ))}

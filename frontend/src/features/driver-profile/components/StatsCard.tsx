@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from '@/components/ui/Card'
-import { SectionHeader } from '@/components/ui/SectionHeader'
 
 export const StatsCard: React.FC = () => {
   const topics = [
@@ -27,13 +26,15 @@ export const StatsCard: React.FC = () => {
       className="flex h-full flex-col gap-4 font-sans text-sm"
       aria-label="Currently Learning Focus Board"
     >
-      <SectionHeader title="WHAT AM I CURRENTLY LEARNING?" />
+      <h3 className="text-text-primary font-space text-lg font-bold tracking-tight">
+        WHAT AM I CURRENTLY LEARNING?
+      </h3>
 
       <div className="flex flex-col gap-3.5">
         {topics.map((topic) => (
           <div key={topic.name} className="flex flex-col gap-0.5">
-            <h4 className="text-text-primary font-mono text-xs font-semibold">{topic.name}</h4>
-            <p className="text-text-secondary text-[11px] leading-relaxed">{topic.desc}</p>
+            <h4 className="text-text-primary font-space text-sm font-bold">{topic.name}</h4>
+            <p className="text-text-secondary font-sans text-xs leading-relaxed">{topic.desc}</p>
           </div>
         ))}
       </div>

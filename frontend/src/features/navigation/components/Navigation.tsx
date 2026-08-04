@@ -62,24 +62,23 @@ export const Navigation: React.FC = () => {
     >
       <nav className="relative w-full" aria-label="Primary Navigation">
         {/* Full-width 3-column grid extending to screen edges */}
-        <div className="grid w-full grid-cols-3 items-center px-6 py-4.5 font-mono md:px-8">
+        <div className="grid w-full grid-cols-3 items-center px-6 py-4.5 font-sans md:px-8">
           {/* Left Column: Brand Logo */}
-          <div className="relative z-50 flex items-center gap-1.5 justify-self-start text-xs font-bold tracking-wider">
+          <div className="relative z-50 flex items-center justify-self-start">
             <a
               href="#"
               onClick={(e) => {
                 e.preventDefault()
                 handleLinkClick('hero')
               }}
-              className="rounded-subtle text-text-primary hover:text-text-secondary focus-visible:ring-border-focus focus-visible:ring-offset-bg-base transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-              aria-label="Project Garage Home"
+              className="rounded-subtle text-text-primary hover:text-accent-red font-orbitron text-xs font-bold tracking-wider transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              aria-label="Sahib Narula Home"
             >
               SN
             </a>
-            <span className="bg-text-primary h-1 w-1 animate-pulse rounded-full" />
           </div>
 
-          {/* Center Column: Clickable Bracket Title */}
+          {/* Center Column: Navbar Title */}
           <div className="relative z-50 justify-self-center text-center">
             <a
               href="#hero"
@@ -87,29 +86,18 @@ export const Navigation: React.FC = () => {
                 e.preventDefault()
                 handleLinkClick('hero')
               }}
-              className="group rounded-subtle focus-visible:ring-border-focus focus-visible:ring-offset-bg-base flex items-center gap-3 transition-colors select-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
-              aria-label="Scroll to top welcome section"
+              className="group rounded-subtle focus-visible:ring-border-focus focus-visible:ring-offset-bg-base flex items-center transition-colors select-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+              aria-label="Scroll to home section"
             >
-              <span className="text-text-muted group-hover:text-text-primary text-sm font-light transition-colors">
-                [
-              </span>
-              <div className="flex flex-col items-center">
-                <span className="text-text-primary group-hover:text-brand-primary text-[10px] font-bold tracking-widest uppercase transition-colors sm:text-xs">
-                  PROJECT GARAGE
-                </span>
-                <span className="text-text-secondary xs:block group-hover:text-text-primary hidden text-[7px] tracking-wider uppercase transition-colors">
-                  BY SAHIB NARULA
-                </span>
-              </div>
-              <span className="text-text-muted group-hover:text-text-primary text-sm font-light transition-colors">
-                ]
+              <span className="text-text-primary group-hover:text-accent-red font-orbitron text-xs font-bold tracking-widest uppercase transition-colors sm:text-sm">
+                Sahib Narula
               </span>
             </a>
           </div>
 
           {/* Right Column: Navigation Links or Menu Toggle */}
-          <div className="relative z-50 flex items-center gap-6 justify-self-end text-[10px] font-semibold tracking-wider">
-            {/* Desktop Nav Links */}
+          <div className="relative z-50 flex items-center gap-6 justify-self-end text-xs font-medium tracking-wider">
+            {/* Desktop Nav Links - Inter Medium (500) */}
             <ul className="hidden items-center gap-6 lg:flex" role="list">
               {links.map((link) => (
                 <li key={link.id}>
@@ -119,7 +107,7 @@ export const Navigation: React.FC = () => {
                       e.preventDefault()
                       handleLinkClick(link.id)
                     }}
-                    className="text-text-secondary hover:text-text-primary focus-visible:ring-border-focus focus-visible:ring-offset-bg-base duration-standard transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
+                    className="text-text-secondary hover:text-accent-red focus-visible:ring-border-focus focus-visible:ring-offset-bg-base duration-standard font-sans font-medium transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none"
                   >
                     {link.label}
                   </a>
@@ -127,16 +115,16 @@ export const Navigation: React.FC = () => {
               ))}
             </ul>
 
-            {/* Mobile non-traditional hamburger trigger (///// -> X) */}
+            {/* Mobile hamburger trigger */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-text-primary flex h-8 cursor-pointer items-center justify-center px-2 font-mono text-[10px] font-bold tracking-widest transition-transform duration-300 focus-visible:outline-none active:scale-95 lg:hidden"
+              className="text-text-primary flex h-8 cursor-pointer items-center justify-center px-2 font-sans text-xs font-medium tracking-widest transition-transform duration-300 focus-visible:outline-none active:scale-95 lg:hidden"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
             >
               <span
                 className={`inline-block transition-all duration-300 ${
-                  isMenuOpen ? 'text-status-error rotate-90 text-sm' : 'text-text-primary rotate-0'
+                  isMenuOpen ? 'text-accent-red rotate-90 text-sm' : 'text-text-primary rotate-0'
                 }`}
               >
                 {isMenuOpen ? '✕' : '/////'}
@@ -154,7 +142,7 @@ export const Navigation: React.FC = () => {
             aria-label="Navigation Overlay"
           >
             <ul
-              className="flex flex-col items-center gap-7 font-mono text-sm font-semibold tracking-widest uppercase"
+              className="flex flex-col items-center gap-7 font-sans text-sm font-medium tracking-widest uppercase"
               role="list"
             >
               {links.map((link) => (
@@ -165,7 +153,7 @@ export const Navigation: React.FC = () => {
                       e.preventDefault()
                       handleLinkClick(link.id)
                     }}
-                    className="text-text-secondary hover:text-text-primary block cursor-pointer px-6 py-3 text-base transition-all hover:scale-105"
+                    className="text-text-secondary hover:text-accent-red block cursor-pointer px-6 py-3 font-sans font-medium text-base transition-all hover:scale-105"
                   >
                     {link.label}
                   </a>
@@ -175,9 +163,9 @@ export const Navigation: React.FC = () => {
           </div>
         )}
 
-        {/* Progress Scroll Indicator */}
+        {/* Progress Scroll Indicator - Accent Red */}
         <div
-          className="bg-brand-primary absolute bottom-0 left-0 h-[1.5px] transition-all duration-75"
+          className="bg-accent-red absolute bottom-0 left-0 h-[1.5px] transition-all duration-75"
           style={{ width: `${scrollProgress}%` }}
           aria-hidden="true"
         />

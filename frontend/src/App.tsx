@@ -9,6 +9,7 @@ import { StartupExperience } from '@/features/startup-sequence/components/Startu
 import { HeroBackground } from '@/features/hero/components/HeroBackground'
 import { ScrollReveal } from '@/components/shared/ScrollReveal'
 import { Button } from '@/components/ui/Button'
+import { DynamicFavicon } from '@/components/shared/DynamicFavicon'
 
 function App() {
   const [isBooted, setIsBooted] = useState<boolean>(false)
@@ -23,6 +24,7 @@ function App() {
 
   return (
     <>
+      <DynamicFavicon />
       {isStartupMounted && (
         <div
           className={`transition-opacity duration-500 ${isBooted ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
@@ -48,18 +50,15 @@ function App() {
 
                 {/* Hero content — constrained width, floats over the immersive background */}
                 <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-6 px-6">
-                  <div className="flex flex-col gap-2 font-mono">
-                    <span className="text-text-primary text-[10px] font-bold tracking-widest uppercase">
-                      PROJECT GARAGE
-                    </span>
-                    <span className="text-text-secondary text-[9px] tracking-wider uppercase">
-                      BY SAHIB NARULA
-                    </span>
-                    <span className="text-status-success mt-1 text-[10px] font-semibold tracking-widest uppercase">
-                      ENGINEERING IN MOTION.
+                  <div className="flex flex-col gap-3">
+                    <h1 className="font-orbitron text-text-primary text-4xl font-extrabold tracking-wider uppercase sm:text-6xl md:text-7xl">
+                      Sahib Narula
+                    </h1>
+                    <span className="text-accent-red font-sans text-xs font-medium tracking-widest uppercase">
+                      AI ENGINEER &amp; SYSTEMS BUILDER
                     </span>
                   </div>
-                  <h2 className="text-text-primary max-w-2xl font-sans text-3xl leading-tight font-extrabold tracking-tight sm:text-4xl md:text-5xl">
+                  <h2 className="text-text-primary max-w-2xl font-sans text-xl leading-tight font-semibold sm:text-2xl md:text-3xl">
                     Building software products, AI systems and immersive digital experiences.
                   </h2>
                   <p className="text-text-secondary max-w-xl font-sans text-sm leading-relaxed md:text-base">
@@ -75,7 +74,7 @@ function App() {
                         const el = document.getElementById('garage-title')
                         if (el) el.scrollIntoView({ behavior: 'smooth' })
                       }}
-                      className="font-mono text-[10px] font-bold tracking-wider"
+                      className="font-sans text-xs font-medium tracking-wider"
                     >
                       EXPLORE THE GARAGE ❯
                     </Button>

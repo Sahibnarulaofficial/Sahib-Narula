@@ -50,10 +50,10 @@ export const EngineeringExperience: React.FC = () => {
               className="flex h-full flex-col gap-2 p-5 font-sans text-sm md:p-6"
               aria-label={`Engineering protocol: ${protocol.title}`}
             >
-              <h3 className="text-text-primary font-mono text-xs font-bold tracking-wider uppercase">
+              <h3 className="text-text-primary font-space text-sm font-bold tracking-wider uppercase">
                 {protocol.title}
               </h3>
-              <p className="text-text-secondary leading-relaxed">{protocol.description}</p>
+              <p className="text-text-secondary font-sans leading-relaxed">{protocol.description}</p>
             </Card>
           </ScrollReveal>
         ))}

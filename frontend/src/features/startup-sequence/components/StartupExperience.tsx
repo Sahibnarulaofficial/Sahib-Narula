@@ -341,10 +341,10 @@ export const StartupExperience: React.FC<StartupExperienceProps> = ({ onComplete
 
             {/* Header */}
             <div className="flex flex-col gap-1.5 text-center sm:text-left">
-              <h1 className="text-text-primary text-base font-bold tracking-widest uppercase">
-                PROJECT GARAGE
+              <h1 className="text-text-primary font-orbitron text-base font-bold tracking-wider uppercase">
+                Sahib Narula
               </h1>
-              <span className="text-text-secondary text-[10px] font-semibold tracking-wider uppercase">
+              <span className="text-text-secondary font-sans text-xs font-medium tracking-wider uppercase">
                 ENGINEERING IN MOTION.
               </span>
             </div>

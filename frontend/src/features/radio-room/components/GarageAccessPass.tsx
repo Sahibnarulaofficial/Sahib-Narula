@@ -131,7 +131,7 @@ export const GarageAccessPass: React.FC = () => {
                 CREDENTIAL FRONT FACE (isFlipped = false)
                 ═══════════════════════════════════════════════════════════════ */}
             <div
-              className="relative w-full rounded-xl border border-zinc-700/80 bg-[#080808] p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] ring-1 ring-white/10 sm:p-8 md:p-10"
+              className="relative w-full rounded-xl border border-border-subtle bg-bg-surface p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] ring-1 ring-white/10 sm:p-8 md:p-10"
               style={{
                 backfaceVisibility: 'hidden',
                 WebkitBackfaceVisibility: 'hidden',
@@ -141,54 +141,54 @@ export const GarageAccessPass: React.FC = () => {
               <div
                 className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl opacity-[0.04]"
                 style={{
-                  backgroundImage: `radial-gradient(#ffffff 0.75px, transparent 0.75px), radial-gradient(#ffffff 0.75px, #080808 0.75px)`,
+                  backgroundImage: `radial-gradient(#ffffff 0.75px, transparent 0.75px), radial-gradient(#ffffff 0.75px, #111111 0.75px)`,
                   backgroundSize: '12px 12px',
                   backgroundPosition: '0 0, 6px 6px',
                 }}
               />
 
-              {/* FEATURE 2: Reinforced Credential Punch Hole Slot */}
+              {/* Reinforced Credential Punch Hole Slot */}
               <div className="absolute top-0 left-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
-                <div className="h-3 w-14 rounded-full border border-zinc-600/80 bg-black shadow-inner ring-1 ring-zinc-800" />
+                <div className="h-3 w-14 rounded-full border border-border-subtle bg-black shadow-inner ring-1 ring-zinc-800" />
               </div>
 
               {/* Technical Corner Crosshairs */}
-              <div className="pointer-events-none absolute top-3 left-3 text-[9px] text-zinc-600 sm:top-4 sm:left-4">
+              <div className="pointer-events-none absolute top-3 left-3 font-mono text-[9px] text-text-muted sm:top-4 sm:left-4">
                 +
               </div>
-              <div className="pointer-events-none absolute top-3 right-3 text-[9px] text-zinc-600 sm:top-4 sm:right-4">
+              <div className="pointer-events-none absolute top-3 right-3 font-mono text-[9px] text-text-muted sm:top-4 sm:right-4">
                 +
               </div>
 
               {/* Holographic Security Foil Strip */}
-              <div className="mb-6 h-1.5 w-full rounded-full bg-gradient-to-r from-teal-500/20 via-purple-500/30 to-amber-500/20 opacity-70 blur-[0.5px]" />
+              <div className="mb-6 h-1.5 w-full rounded-full bg-gradient-to-r from-accent-red/40 via-purple-500/30 to-amber-500/20 opacity-70 blur-[0.5px]" />
 
               {/* Header */}
-              <div className="flex flex-col gap-5 border-b border-zinc-800/80 pb-6">
+              <div className="flex flex-col gap-5 border-b border-border-subtle pb-6">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div className="flex flex-col gap-1">
-                    <span className="text-[10px] font-bold tracking-[0.25em] text-zinc-400 uppercase">
-                      PROJECT GARAGE
+                    <span className="font-sans text-xs font-medium tracking-[0.2em] text-text-secondary uppercase">
+                      SAHIB NARULA
                     </span>
-                    <h3 className="font-sans text-xl font-extrabold tracking-tight text-white sm:text-2xl">
+                    <h3 className="font-orbitron text-xl font-bold tracking-wider text-text-primary sm:text-2xl">
                       Garage Access Pass
                     </h3>
                   </div>
 
                   {/* Pass ID Badge */}
-                  <div className="flex items-center gap-2 rounded border border-zinc-800/80 bg-black/80 px-3 py-1.5 backdrop-blur-xs">
+                  <div className="flex items-center gap-2 rounded border border-border-subtle bg-black/80 px-3 py-1.5 backdrop-blur-xs">
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
-                        isSuccess ? 'animate-pulse bg-emerald-400' : 'animate-pulse bg-amber-400'
+                        isSuccess ? 'animate-pulse bg-emerald-400' : 'animate-pulse bg-accent-red'
                       }`}
                     />
-                    <span className="text-[10px] font-bold tracking-widest text-zinc-300">
+                    <span className="font-mono text-xs font-semibold tracking-widest text-text-primary">
                       {passId}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap items-center justify-between gap-2 text-[8px] tracking-widest text-zinc-500 uppercase">
+                <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-[9px] tracking-widest text-text-secondary uppercase">
                   <span>CLASSIFICATION :: CONFIDENTIAL</span>
                   <span>DIVISION :: SOFTWARE & AI LABS</span>
                 </div>

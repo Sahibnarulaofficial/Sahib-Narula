@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card } from '@/components/ui/Card'
-import { SectionHeader } from '@/components/ui/SectionHeader'
 
 export const PerformanceCard: React.FC = () => {
   const statuses = [
@@ -24,24 +23,26 @@ export const PerformanceCard: React.FC = () => {
       aria-label="Active Developer Status Panel"
     >
       <div className="flex flex-col gap-3">
-        <SectionHeader title="WHAT AM I CURRENTLY BUILDING?" />
-        <p className="text-text-secondary leading-relaxed">
+        <h3 className="text-text-primary font-space text-lg font-bold tracking-tight">
+          WHAT AM I CURRENTLY BUILDING?
+        </h3>
+        <p className="text-text-secondary font-sans leading-relaxed">
           I maintain a tight shipping loop focused on building and testing modular SaaS products,
           generative AI productivity toolkits, and infrastructure telemetry log daemons.
         </p>
       </div>
 
       <div className="mt-1 flex flex-col gap-3">
-        <span className="text-text-muted font-mono text-[9px] uppercase">Active Shipping Log</span>
+        <span className="text-text-secondary font-sans text-[10px] font-medium tracking-wider uppercase">Active Shipping Log</span>
         <div className="flex flex-col gap-3.5">
           {statuses.map((status) => (
             <div key={status.label} className="flex items-start gap-3">
-              <span className="bg-brand-primary mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" />
+              <span className="bg-accent-red mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full" />
               <div className="flex flex-col gap-0.5">
-                <span className="text-text-primary font-mono text-[10px] font-bold tracking-wider uppercase">
+                <span className="text-text-primary font-mono text-xs font-semibold tracking-wider uppercase">
                   {status.label}
                 </span>
-                <p className="text-text-secondary text-[11px] leading-relaxed">{status.desc}</p>
+                <p className="text-text-secondary font-sans text-xs leading-relaxed">{status.desc}</p>
               </div>
             </div>
           ))}

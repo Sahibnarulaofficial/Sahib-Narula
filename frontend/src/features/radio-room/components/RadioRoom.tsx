@@ -77,14 +77,14 @@ export const RadioRoom: React.FC = () => {
                   </div>
 
                   {/* Back of Card: Title, Description and Link Actions */}
-                  <div className="flip-card-back bg-bg-surface border-border-subtle hover:border-text-primary/60 flex flex-col justify-between border p-4 text-center">
-                    <h4 className="text-text-primary font-mono text-xs font-bold tracking-wider uppercase">
+                  <div className="flip-card-back bg-bg-surface border-border-subtle hover:border-accent-red flex flex-col justify-between border p-4 text-center">
+                    <h4 className="text-text-primary font-space text-sm font-bold tracking-wider uppercase">
                       {channel.name}
                     </h4>
-                    <p className="text-text-secondary text-[11px] leading-relaxed">
+                    <p className="text-text-secondary font-sans text-xs leading-relaxed">
                       {channel.label}
                     </p>
-                    <span className="text-text-muted font-mono text-[9px] font-semibold tracking-wider uppercase">
+                    <span className="text-accent-red font-sans text-xs font-medium tracking-wider uppercase">
                       CONNECT ❯
                     </span>
                   </div>

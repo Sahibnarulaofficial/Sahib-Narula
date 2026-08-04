@@ -14,12 +14,12 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   ...props
 }) => {
   return (
-    <div className={`flex flex-col ${className}`} {...props}>
-      <Component className="text-text-muted font-mono text-xs font-semibold tracking-widest uppercase">
+    <div className={`flex flex-col gap-1.5 ${className}`} {...props}>
+      <Component className="text-text-primary font-orbitron text-xl font-bold tracking-wider uppercase sm:text-2xl md:text-3xl">
         {title}
       </Component>
       {subtitle && (
-        <p className="text-text-secondary font-mono text-[10px] uppercase">{subtitle}</p>
+        <p className="text-text-secondary font-sans text-xs font-medium tracking-wider uppercase">{subtitle}</p>
       )}
     </div>
   )

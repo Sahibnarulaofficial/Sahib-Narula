@@ -1,43 +1,49 @@
 @import 'tailwindcss';
 
 @theme {
-  /* Design Tokens - Colors */
-  --color-bg-base: #09090b;
-  --color-bg-surface: #18181b;
-  --color-bg-surface-hover: #27272a;
+  /* Design Tokens - Typography Hierarchy */
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-space: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  --color-text-primary: #f4f4f5;
-  --color-text-secondary: #a1a1aa;
+  /* Design Tokens - Text Color Palette & Surfaces */
+  --color-surface: #111111;
+  --color-bg-base: #09090b;
+  --color-bg-surface: #111111;
+  --color-bg-surface-hover: #1a1a1e;
+
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a0a0a0;
   --color-text-muted: #71717a;
 
-  --color-border-subtle: #27272a;
-  --color-border-focus: #f4f4f5;
+  --color-accent-red: #e10600;
+  --color-grid-line: #1a1a1a;
 
-  --color-brand-primary: #fafafa;
-  --color-brand-primary-hover: #e4e4e7;
+  --color-border-subtle: #1a1a1a;
+  --color-border-focus: #f5f5f5;
 
-  /* Design Tokens - Status Colors (Accessible pairings) */
-  --color-status-success: #34d399; /* emerald-400 */
+  --color-brand-primary: #f5f5f5;
+  --color-brand-primary-hover: #ffffff;
+  --color-brand-accent: #e10600;
+
+  /* Design Tokens - Status Colors */
+  --color-status-success: #34d399;
   --color-status-success-bg: rgba(52, 211, 153, 0.1);
   --color-status-success-border: rgba(52, 211, 153, 0.2);
 
-  --color-status-warning: #fbbf24; /* amber-400 */
+  --color-status-warning: #fbbf24;
   --color-status-warning-bg: rgba(251, 191, 36, 0.1);
   --color-status-warning-border: rgba(251, 191, 36, 0.2);
 
-  --color-status-error: #f87171; /* red-400 */
-  --color-status-error-bg: rgba(248, 113, 113, 0.1);
-  --color-status-error-border: rgba(248, 113, 113, 0.2);
+  --color-status-error: #e10600;
+  --color-status-error-bg: rgba(225, 6, 0, 0.1);
+  --color-status-error-border: rgba(225, 6, 0, 0.2);
 
-  --color-status-info: #60a5fa; /* blue-400 */
+  --color-status-info: #60a5fa;
   --color-status-info-bg: rgba(96, 165, 250, 0.1);
   --color-status-info-border: rgba(96, 165, 250, 0.2);
-
-  /* Design Tokens - Typography (System Fallbacks) */
-  --font-sans:
-    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', Courier, monospace;
 
   /* Design Tokens - Spacing Standards */
   --spacing-layout-gap-sm: 1rem;
@@ -55,7 +61,7 @@
   /* Design Tokens - Shadows */
   --shadow-subtle: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-medium: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-focus: 0 0 0 2px rgba(16, 185, 129, 0.2);
+  --shadow-focus: 0 0 0 2px rgba(225, 6, 0, 0.2);
 
   /* Design Tokens - Transitions */
   --transition-standard: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -154,4 +160,79 @@ body {
 
 .animate-lanyard-sway {
   animation: lanyardSway 6s ease-in-out infinite;
+}
+
+/* Carbon Fiber Weave Texture */
+.bg-carbon-fiber {
+  background-color: #111111;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.035) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.035) 75%, rgba(255, 255, 255, 0.035)),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.035) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.035) 75%, rgba(255, 255, 255, 0.035));
+  background-size: 6px 6px;
+  background-position: 0 0, 3px 3px;
+}
+
+/* Motorsport Gloss Sheen Overlay */
+.gloss-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.02) 35%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+/* 3D Gloss Box System */
+.card-3d-gloss {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  box-shadow:
+    0 15px 35px -5px rgba(0, 0, 0, 0.8),
+    0 5px 15px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.6);
+}
+
+.card-3d-gloss:hover {
+  transform: translateY(-6px) scale(1.012) rotateX(1.5deg);
+  box-shadow:
+    0 28px 60px -10px rgba(0, 0, 0, 0.9),
+    0 12px 25px -5px rgba(0, 0, 0, 0.6),
+    0 0 25px 0 rgba(225, 6, 0, 0.15),
+    inset 0 1px 2.5px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -2px 4px 0 rgba(0, 0, 0, 0.7);
+}
+
+/* Glass Sheen Overlay for 3D Box */
+.gloss-3d-sheen {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0) 55%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+}
+
+/* Dynamic Sheen Sweep Reflection across 3D box */
+.gloss-sweep {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.75s ease-in-out;
+  pointer-events: none;
+}
+
+.card-3d-gloss:hover .gloss-sweep {
+  left: 150%;
 }
