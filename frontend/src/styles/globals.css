@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════
+   THEME VARIABLES
+   All color tokens defined here. [data-theme] attribute on <html>
+   switches between dark and light. Tailwind classes reference
+   these variables via tailwind.config.js — no hardcoded hex.
+══════════════════════════════════════════════════════════════ */
+
+/* Dark theme — primary visual identity */
+:root,
+[data-theme="dark"] {
+  --color-base:      #0A0A0A;
+  --color-surface:   #111111;
+  --color-detail:    #1A1A1A;
+  --color-primary:   #F5F5F5;
+  --color-secondary: #A0A0A0;
+  --color-accent:    #E10600;
+  --color-grid:      rgba(245, 245, 245, 0.03);
+
+  /* Profile */
+  --profile-border: #E10600;
+  --profile-glow:   rgba(225, 6, 0, 0.38);
+  --profile-line:   linear-gradient(to bottom, transparent, rgba(225,6,0,0.6) 60%, #E10600);
+
+  /* Misc surface overlays */
+  --nav-bg:          rgba(10, 10, 10, 0.9);
+
+  /* Grid opacities */
+  --grid-base: 0.05;
+  --grid-max:  0.09;
+}
+
+/* Light theme — intentionally designed, not a simple inversion */
+[data-theme="light"] {
+  --color-base:      #F5F5F2;
+  --color-surface:   #FFFFFF;
+  --color-detail:    #D9D9D4;
+  --color-primary:   #111111;
+  --color-secondary: #666666;
+  --color-accent:    #E10600;
+  --color-grid:      rgba(0, 0, 0, 0.04);
+
+  /* Profile */
+  --profile-border: #E10600;
+  --profile-glow:   rgba(225, 6, 0, 0.20);
+  --profile-line:   linear-gradient(to bottom, transparent, rgba(225,6,0,0.45) 60%, #E10600);
+
+  /* Misc */
+  --nav-bg:          rgba(245, 245, 242, 0.9);
+
+  /* Grid opacities — increased for light theme for better visibility */
+  --grid-base: 0.10;
+  --grid-max:  0.15;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BASE RESET
+══════════════════════════════════════════════════════════════ */
+@keyframes grid-pulse {
+  0%, 100% { opacity: var(--grid-base); }
+  50% { opacity: var(--grid-max); }
+}
+
+.animate-grid-pulse {
+  animation: grid-pulse 5s ease-in-out infinite;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  overflow-x: hidden;
+  /* Apply data-theme immediately — prevents flash */
+  background-color: var(--color-base);
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent;
+  padding-left:  env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   THEME TRANSITIONS
+   Target only specific properties on specific selectors.
+   Do NOT blanket-transition all elements — that breaks GSAP.
+══════════════════════════════════════════════════════════════ */
+
+/* Only apply theme transitions to structural elements, not everything */
+html,
+body,
+header,
+nav,
+main,
+section,
+article,
+aside,
+footer,
+div,
+span,
+p,
+h1, h2, h3, h4, h5, h6,
+a,
+button,
+input,
+textarea,
+label {
+  transition:
+    background-color 0.25s ease,
+    border-color     0.25s ease,
+    color            0.25s ease,
+    box-shadow       0.25s ease;
+}
+
+/* But never transition transform, opacity, or clip-path
+   — those are GSAP-controlled and must remain instantaneous */
+
+/* ══════════════════════════════════════════════════════════════
+   CUSTOM CURSOR
+══════════════════════════════════════════════════════════════ */
+body.has-custom-cursor,
+body.has-custom-cursor * {
+  cursor: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   SELECTION, SCROLLBAR, FOCUS
+══════════════════════════════════════════════════════════════ */
+::selection {
+  background-color: rgba(225, 6, 0, 0.22);
+  color: var(--color-primary);
+}
+
+::-webkit-scrollbar        { width: 3px; }
+::-webkit-scrollbar-track  { background: var(--color-base); }
+::-webkit-scrollbar-thumb  { background: var(--color-detail); }
+::-webkit-scrollbar-thumb:hover { background: #555; }
+
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   REDUCED MOTION
+══════════════════════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration:        0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration:       0.01ms !important;
+    scroll-behavior:           auto !important;
+  }
+}
