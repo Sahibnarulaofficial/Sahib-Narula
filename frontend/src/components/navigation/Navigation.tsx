@@ -31,10 +31,14 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  /* ── Body scroll lock ── */
+  /* ── Body scroll lock & nav menu state ── */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    document.body.classList.toggle('nav-menu-open', menuOpen)
+    return () => { 
+      document.body.style.overflow = ''
+      document.body.classList.remove('nav-menu-open')
+    }
   }, [menuOpen])
 
   /* ── Mobile Menu Animation ── */
@@ -81,7 +85,7 @@ export function Navigation() {
   return (
     <header
       ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 transition-colors duration-300"
+      className="fixed top-0 left-0 right-0 z-[100001] transition-colors duration-300"
       style={{
         backgroundColor: scrolled || menuOpen ? 'var(--nav-bg)' : 'transparent',
         backdropFilter:  scrolled || menuOpen ? 'blur(12px)' : 'none',
@@ -89,7 +93,7 @@ export function Navigation() {
       }}
     >
       <nav
-        className="flex items-center justify-between px-5 sm:px-6 md:px-10 py-4 max-w-7xl mx-auto"
+        className="flex items-center justify-between px-5 sm:px-8 md:px-12 lg:px-16 py-4 w-full"
         aria-label="Primary navigation"
       >
         {/* Logo */}
@@ -123,13 +127,13 @@ export function Navigation() {
           <ThemeToggle />
         </div>
 
-        {/* Mobile: theme toggle + hamburger */}
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Mobile: theme toggle + hamburger (not inside menu) */}
+        <div className="flex items-center gap-3 lg:hidden">
           <ThemeToggle />
 
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="relative z-50 flex flex-col justify-center items-end gap-[6px] w-12 h-12 -mr-2 focus-visible:outline-none"
+            className="relative z-50 flex flex-col justify-center items-end gap-[6px] w-12 h-12 -mr-2 focus-visible:outline-none cursor-pointer"
             aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={menuOpen}
           >
@@ -165,11 +169,34 @@ export function Navigation() {
       {/* Mobile overlay menu */}
       <div
         ref={overlayRef}
-        className="fixed top-0 left-0 w-screen h-[100dvh] z-40 bg-brand-base flex flex-col items-center justify-center opacity-0 pointer-events-none overflow-hidden"
+        className="fixed top-0 left-0 w-screen h-[100dvh] z-[100000] bg-brand-base flex flex-col items-center justify-center opacity-0 pointer-events-none overflow-hidden"
         role="dialog"
         aria-modal="true"
         aria-label="Navigation overlay"
       >
+        {/* Top header inside menu with Close (X) button */}
+        <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-5 sm:px-8 md:px-12 py-4">
+          <a
+            href="#hero"
+            onClick={(e) => { e.preventDefault(); scrollTo('hero') }}
+            className="font-orbitron text-sm font-bold text-content-primary tracking-[0.2em] hover:text-accent transition-colors duration-300"
+            aria-label="Sahib Narula — scroll to top"
+          >
+            SN
+          </a>
+          
+          <button
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center justify-center w-12 h-12 -mr-2 text-content-primary hover:text-accent transition-colors duration-200 cursor-pointer focus-visible:outline-none"
+            aria-label="Close navigation menu"
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
         <ul className="flex flex-col items-center gap-6" role="list">
           {NAV_LINKS.map((link, i) => (
             <li
@@ -187,11 +214,6 @@ export function Navigation() {
             </li>
           ))}
         </ul>
-
-        {/* Theme toggle — mobile menu */}
-        <div className="mt-10 border-t border-brand-detail/30 w-48 pt-6">
-          <ThemeToggle inMenu />
-        </div>
 
         <div className="absolute bottom-10 font-mono text-[10px] text-content-secondary/30 tracking-widest">
           SAHIB NARULA · 2026

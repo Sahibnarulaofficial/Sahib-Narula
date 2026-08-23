@@ -11,6 +11,7 @@ import { Experience }     from '@/components/experience/Experience'
 import { Education }      from '@/components/education/Education'
 import { Contact }        from '@/components/contact/Contact'
 import { Footer }         from '@/components/footer/Footer'
+import { AIChat }         from '@/components/AIChat/AIChat'
 
 function AppContent() {
   // Refresh ScrollTrigger once fonts are loaded / after initial render
@@ -41,6 +42,9 @@ function AppContent() {
       </main>
 
       <Footer />
+      
+      {/* Floating AI Assistant */}
+      <AIChat />
     </>
   )
 }

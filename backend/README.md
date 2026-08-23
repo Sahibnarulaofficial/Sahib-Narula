@@ -1,25 +1,38 @@
-﻿# Sahib Narula Portfolio — Backend
+# Sahib Narula Portfolio — Python FastAPI Backend
 
-Express + TypeScript backend for the portfolio contact form. Uses Resend for transactional email.
+Python 3.11+ FastAPI backend powering the portfolio **Contact Form (Resend API)** and the **AI Chatbot Assistant (LangChain + Groq/LLMs)**.
 
 ## Stack
 
-- Node.js + TypeScript
-- Express 4
-- Resend (email)
-- express-validator (input validation)
-- express-rate-limit (basic rate limiting)
+- **Python**: 3.11+
+- **Framework**: FastAPI + Uvicorn
+- **AI Orchestration**: LangChain, LangChain Groq (`openai/gpt-oss-120b`), LangChain OpenAI, LangChain Google GenAI
+- **Email Service**: Resend Python SDK
+- **Data Validation**: Pydantic v2
+- **Environment**: python-dotenv
 
-## Setup
+## Setup & Local Development
 
-### 1. Install dependencies
+### 1. (Optional) Create and activate virtual environment
 
 ```bash
 cd backend
-npm install
+python -m venv .venv
+
+# On Windows:
+.venv\Scripts\activate
+
+# On macOS/Linux:
+source .venv/bin/activate
 ```
 
-### 2. Configure environment
+### 2. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Configure environment variables
 
 ```bash
 cp .env.example .env
@@ -29,46 +42,43 @@ Edit `backend/.env`:
 
 | Variable | Description |
 |---|---|
-| `RESEND_API_KEY` | Your Resend API key from resend.com/dashboard |
-| `CONTACT_TO_EMAIL` | Email address that receives contact form submissions |
-| `CONTACT_FROM_EMAIL` | Verified sender email (must be added in Resend) |
-| `PORT` | Port to run the backend on (default: 5000) |
-| `FRONTEND_URL` | Frontend origin for CORS (default: http://localhost:5173) |
+| `PORT` | Port the backend listens on (default: `5000`) |
+| `FRONTEND_URL` | Frontend origin for CORS (e.g. `http://localhost:5173`) |
+| `RESEND_API_KEY` | Resend API key for contact form emails |
+| `CONTACT_TO_EMAIL` | Destination email for contact form submissions |
+| `CONTACT_FROM_EMAIL` | Verified sender address configured in Resend |
+| `LLM_PROVIDER` | `groq` (default), `openai`, or `google` |
+| `GROQ_API_KEY` | Groq API Key (or `LLM_API_KEY`) |
+| `LLM_MODEL` | Model identifier (e.g. `openai/gpt-oss-120b`) |
+| `LLM_TEMPERATURE` | Temperature setting (default: `0.3`) |
 
-### 3. Start development server
-
-```bash
-npm run dev
-```
-
-### 4. Test the health endpoint
+### 4. Start the development server
 
 ```bash
-curl http://localhost:5000/api/health
-# { "status": "ok" }
+uvicorn main:app --reload --port 5000
 ```
 
-### 5. Test the contact endpoint
+### 5. API Endpoints
 
-```bash
-curl -X POST http://localhost:5000/api/contact \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Test","email":"test@example.com","message":"Hello from the test suite!"}'
-```
+- **Health Check**: `GET /api/health`
+- **AI Chatbot**: `POST /api/chat`
+  ```json
+  {
+    "message": "Tell me about Sahib's projects",
+    "conversationId": "optional-id"
+  }
+  ```
+- **Contact Form**: `POST /api/contact`
+  ```json
+  {
+    "name": "Alex",
+    "email": "alex@example.com",
+    "message": "Hello Sahib, let's connect!"
+  }
+  ```
 
-## Resend Configuration
+## Render Deployment
 
-1. Create an account at [resend.com](https://resend.com)
-2. Add and verify your sending domain
-3. Generate an API key
-4. Set `RESEND_API_KEY` in `backend/.env`
-5. Set `CONTACT_FROM_EMAIL` to a verified sender address
-
-## Production
-
-```bash
-npm run build
-npm start
-```
-
-Make sure to set all environment variables in your production environment. Never commit `.env` to version control.
+- **Environment**: Python 3
+- **Build Command**: `pip install -r requirements.txt`
+- **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
