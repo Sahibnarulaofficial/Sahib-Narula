@@ -19,6 +19,7 @@
   --color-secondary: #A0A0A0;
   --color-accent:    #E10600;
   --color-grid:      rgba(245, 245, 245, 0.03);
+  --hero-name-stroke: rgba(245, 245, 245, 0.45);
 
   /* Profile */
   --profile-border: #E10600;
@@ -42,6 +43,7 @@
   --color-secondary: #666666;
   --color-accent:    #E10600;
   --color-grid:      rgba(0, 0, 0, 0.04);
+  --hero-name-stroke: rgba(17, 17, 17, 0.45);
 
   /* Profile */
   --profile-border: #E10600;

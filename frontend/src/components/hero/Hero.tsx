@@ -154,7 +154,7 @@ export function Hero() {
               lineHeight: '0.88',
               letterSpacing: '-0.02em',
               color: 'transparent',
-              WebkitTextStroke: '1px rgba(245,245,245,0.45)',
+              WebkitTextStroke: '1px var(--hero-name-stroke, rgba(245,245,245,0.45))',
             }}
           >
             NARULA

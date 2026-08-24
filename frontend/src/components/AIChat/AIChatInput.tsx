@@ -30,7 +30,7 @@ export const AIChatInput: React.FC<AIChatInputProps> = ({ onSend, disabled }) =>
   const isDisabled = disabled || cooldown;
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 border-t border-[#333333] bg-[#111111]/90">
+    <form onSubmit={handleSubmit} className="p-4 border-t border-brand-detail bg-brand-surface/90">
       <div className="relative flex items-center">
         <input
           ref={inputRef}
@@ -40,18 +40,18 @@ export const AIChatInput: React.FC<AIChatInputProps> = ({ onSend, disabled }) =>
           onChange={(e) => setInput(e.target.value)}
           placeholder={cooldown ? "Please wait a moment..." : "Ask about Sahib's work..."}
           disabled={isDisabled}
-          className="w-full bg-[#1A1A1A] border border-[#333333] rounded-full py-3 pl-4 pr-12 
-                     text-sm text-[#F5F5F5] placeholder-[#666666]
-                     focus:outline-none focus:border-[#E10600]/50 focus:ring-1 focus:ring-[#E10600]/50
+          className="w-full bg-brand-base border border-brand-detail rounded-full py-3 pl-4 pr-12 
+                     text-sm text-content-primary placeholder:text-content-secondary/60
+                     focus:outline-none focus:border-accent/50 focus:ring-1 focus:ring-accent/50
                      transition-all disabled:opacity-50"
           aria-label="Chat input"
         />
         <button
           type="submit"
           disabled={!input.trim() || isDisabled}
-          className="absolute right-2 p-2 rounded-full text-[#A0A0A0] hover:text-[#E10600] 
-                     disabled:opacity-50 disabled:hover:text-[#A0A0A0] transition-colors
-                     bg-[#1A1A1A] hover:bg-[#222222]"
+          className="absolute right-2 p-2 rounded-full text-content-secondary hover:text-accent 
+                     disabled:opacity-40 disabled:hover:text-content-secondary transition-colors
+                     bg-brand-base hover:bg-brand-detail"
           aria-label="Send message"
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

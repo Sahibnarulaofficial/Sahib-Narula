@@ -15,9 +15,15 @@ export const AIChat: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  
+
+  // Unread badge and preview bubble states
+  const [hasUnread, setHasUnread] = useState(true);
+  const [bubbleMessage, setBubbleMessage] = useState<string | null>(null);
+  const [isBubbleVisible, setIsBubbleVisible] = useState(false);
+
   const chatWindowRef = useRef<HTMLDivElement>(null);
   const assistantButtonRef = useRef<HTMLButtonElement>(null);
+  const bubbleTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   // Track conversation ID
   const [conversationId] = useState(() => Math.random().toString(36).substring(7));
@@ -29,7 +35,35 @@ export const AIChat: React.FC = () => {
     }
   }, [isOpen, messages.length]);
 
-  // Auto-hide on click outside
+  // Initial welcome bubble on page load (pops up after 2.5s, fades out after 7.5s)
+  useEffect(() => {
+    const initialTimer = setTimeout(() => {
+      if (!isOpen) {
+        setBubbleMessage("Hey, I'm Blub! Ask me about Sahib's projects & skills.");
+        setIsBubbleVisible(true);
+
+        bubbleTimerRef.current = setTimeout(() => {
+          setIsBubbleVisible(false);
+        }, 7500);
+      }
+    }, 2500);
+
+    return () => {
+      clearTimeout(initialTimer);
+      if (bubbleTimerRef.current) clearTimeout(bubbleTimerRef.current);
+    };
+  }, []);
+
+  // When chat window opens, clear unread status and hide bubble
+  useEffect(() => {
+    if (isOpen) {
+      setHasUnread(false);
+      setIsBubbleVisible(false);
+      if (bubbleTimerRef.current) clearTimeout(bubbleTimerRef.current);
+    }
+  }, [isOpen]);
+
+  // Auto-hide chat window on click outside
   useEffect(() => {
     if (!isOpen) return;
 
@@ -44,7 +78,6 @@ export const AIChat: React.FC = () => {
       }
     };
 
-    // Use capturing phase or delay slightly so clicks inside buttons fire first
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('touchstart', handleClickOutside);
 
@@ -80,8 +113,26 @@ export const AIChat: React.FC = () => {
         timestamp: new Date()
       };
       setMessages(prev => [...prev, assistantMsg]);
+
+      // If user closed the chat window while awaiting response, notify with red dot & preview bubble
+      if (!isOpen) {
+        setHasUnread(true);
+        const preview = reply.length > 80 ? reply.slice(0, 77) + '...' : reply;
+        setBubbleMessage(preview);
+        setIsBubbleVisible(true);
+
+        if (bubbleTimerRef.current) clearTimeout(bubbleTimerRef.current);
+        bubbleTimerRef.current = setTimeout(() => {
+          setIsBubbleVisible(false);
+        }, 7500);
+      }
     }
-  }, [conversationId]);
+  }, [conversationId, isOpen]);
+
+  const handleCloseBubble = () => {
+    setIsBubbleVisible(false);
+    if (bubbleTimerRef.current) clearTimeout(bubbleTimerRef.current);
+  };
 
   return (
     <>
@@ -98,7 +149,11 @@ export const AIChat: React.FC = () => {
       <AIAssistant 
         ref={assistantButtonRef}
         isOpen={isOpen} 
-        onClick={() => setIsOpen(prev => !prev)} 
+        onClick={() => setIsOpen(prev => !prev)}
+        hasUnread={hasUnread}
+        bubbleMessage={bubbleMessage}
+        isBubbleVisible={isBubbleVisible}
+        onCloseBubble={handleCloseBubble}
       />
     </>
   );
