@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect, useState, type FormEvent } from 'react'
 import { gsap } from '@/lib/gsap'
 import { sendContactMessage } from '@/lib/api'
-
+import resumeFile from '../../../../asset/documents/Resume.pdf'
 type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 export function Contact() {
@@ -270,7 +270,7 @@ export function Contact() {
               </span>
               <div className="flex flex-col gap-4">
                 {/* Resume */}
-                <a href="../../../../asset/documents/resume.pdf" download target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-content-secondary hover:text-content-primary transition-colors duration-200">
+                <a href={resumeFile} download="Resume.pdf" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-content-secondary hover:text-content-primary transition-colors duration-200">
                   <div className="w-12 h-12 border border-brand-detail rounded-full flex items-center justify-center flex-shrink-0 group-hover:border-accent group-hover:bg-accent/10 group-hover:text-accent transition-all duration-300">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                   </div>
