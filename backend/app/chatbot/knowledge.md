@@ -145,7 +145,7 @@ Sahib Narula is a systems engineer, AI builder, and software craftsman based in 
 
 # Contact Information
 
-- **Direct Email**: hello@sahibnarula.com
+- **Direct Email**: sahibnarulaofficial@gmail.com
 - **Contact Form**: Available directly in the portfolio Contact section.
 - **Resume**: Downloadable at `/resume.pdf`.
 
