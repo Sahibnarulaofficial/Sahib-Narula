@@ -23,18 +23,18 @@ app.add_middleware(ChatRateLimiterMiddleware)
 # ── CORS ──────────────────────────────────────────────────────────────────────
 # Support configured FRONTEND_URL and local dev URLs
 allowed_origins = [
-    origin.strip() for origin in settings.FRONTEND_URL.split(",") if origin.strip()
+    origin.strip().rstrip("/") for origin in settings.FRONTEND_URL.split(",") if origin.strip()
 ]
 # Ensure localhost variations are included for local development
-for dev_origin in ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000"]:
+for dev_origin in ["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:5174", "http://127.0.0.1:5174", "http://localhost:3000"]:
     if dev_origin not in allowed_origins:
         allowed_origins.append(dev_origin)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,
+    allow_origins=["*"],
     allow_credentials=False,
-    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
