@@ -49,8 +49,8 @@ export const projects: Project[] = [
     ],
     technologies: ['Python', 'Go', 'Kubernetes', 'Prometheus'],
     links: {
-      github: null,
-      live: null,
+      github: "https://github.com/Sahibnarulaofficial/ReviveOps-AI",
+      live: "https://revive-ops-ai.vercel.app/",
     },
   },
 ]
