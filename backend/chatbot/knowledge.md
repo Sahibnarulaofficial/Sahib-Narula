@@ -124,7 +124,6 @@ Sahib Narula is a systems engineer, AI builder, and software craftsman based in 
 - Systems programming and distributed systems
 - High-performance AI agent architectures
 - Audio/video streaming infrastructure (WebRTC)
-- Formula 1 and precision performance engineering
 
 ---
 
@@ -145,7 +144,7 @@ Sahib Narula is a systems engineer, AI builder, and software craftsman based in 
 
 # Contact Information
 
-- **Direct Email**: hello@sahibnarula.com
+- **Direct Email**: sahibnarulaofficial@gmail.com
 - **Contact Form**: Available directly in the portfolio Contact section.
 - **Resume**: Downloadable at `/resume.pdf`.
 
@@ -171,4 +170,4 @@ A: Sahib has built **Aptlyst AI** (an AI Meeting Copilot Platform in production)
 A: TypeScript, JavaScript, Python, Go, React, FastAPI, Node.js, LangChain, WebRTC, Docker, Kubernetes, and PostgreSQL.
 
 **Q: How can I contact Sahib or hire him?**
-A: You can reach him via email at **hello@sahibnarula.com** or by sending a message through the Contact section of his portfolio.
+A: You can reach him via email at **sahibnarulaofficial@gmail.com** or by sending a message through the Contact section of his portfolio.
