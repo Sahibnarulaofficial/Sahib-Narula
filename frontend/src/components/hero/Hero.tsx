@@ -13,8 +13,8 @@ function scrollToId(id: string) {
 export function Hero() {
   const containerRef = useRef<HTMLElement>(null)
   const eyebrowRef   = useRef<HTMLDivElement>(null)
-  const sahibRef     = useRef<HTMLDivElement>(null)
-  const narulaRef    = useRef<HTMLDivElement>(null)
+  const sahibRef     = useRef<HTMLSpanElement>(null)
+  const narulaRef    = useRef<HTMLSpanElement>(null)
   const supportRef   = useRef<HTMLParagraphElement>(null)
   const metaRef      = useRef<HTMLDivElement>(null)
   const ctaRef       = useRef<HTMLDivElement>(null)
@@ -133,11 +133,14 @@ export function Hero() {
           </span>
         </div>
 
-        {/* Name */}
-        <div className="mb-5 sm:mb-8 md:mb-10">
-          <div
+        {/* Name — semantic H1 for search engines */}
+        <h1
+          className="mb-5 sm:mb-8 md:mb-10"
+          aria-label="Sahib Narula — AI Developer &amp; Automation Builder"
+        >
+          <span
             ref={sahibRef}
-            className="font-orbitron font-black text-content-primary"
+            className="block font-orbitron font-black text-content-primary"
             style={{
               fontSize: 'clamp(3rem, 13.5vw, 10.5rem)',
               lineHeight: '0.88',
@@ -145,10 +148,10 @@ export function Hero() {
             }}
           >
             SAHIB
-          </div>
-          <div
+          </span>
+          <span
             ref={narulaRef}
-            className="font-orbitron font-black"
+            className="block font-orbitron font-black"
             style={{
               fontSize: 'clamp(3rem, 13.5vw, 10.5rem)',
               lineHeight: '0.88',
@@ -158,8 +161,8 @@ export function Hero() {
             }}
           >
             NARULA
-          </div>
-        </div>
+          </span>
+        </h1>
 
         {/* Supporting text */}
         <p

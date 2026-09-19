@@ -114,7 +114,11 @@ export function ProfileSuspension() {
           <img
             ref={imgRef}
             src="/assets/profile.jpg"
-            alt="Sahib Narula"
+            alt="Sahib Narula — AI Developer & Automation Builder"
+            loading="lazy"
+            decoding="async"
+            width={220}
+            height={220}
             style={{
               width:          '100%',
               height:         '100%',

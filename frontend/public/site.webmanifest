@@ -1,0 +1,16 @@
+{
+  "name": "Sahib Narula — AI Developer & Automation Builder",
+  "short_name": "Sahib Narula",
+  "description": "Building intelligent systems, AI-powered products, and automation experiences.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030303",
+  "theme_color": "#030303",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

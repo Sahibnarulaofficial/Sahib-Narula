@@ -36,9 +36,9 @@ export function Education() {
           <span className="font-mono text-[10px] text-accent tracking-[0.3em] uppercase">
             EDUCATION
           </span>
-          <h3 className="font-space text-xl md:text-2xl font-bold text-content-primary">
+          <h2 className="font-space text-xl md:text-2xl font-bold text-content-primary">
             Bachelor of Computer Applications
-          </h3>
+          </h2>
           <p className="font-inter text-content-secondary">
             S.S. Jain Subodh P.G. College
           </p>

@@ -1,0 +1,6 @@
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+
+# XML Sitemap
+Sitemap: https://sahib-narula.vercel.app/sitemap.xml
