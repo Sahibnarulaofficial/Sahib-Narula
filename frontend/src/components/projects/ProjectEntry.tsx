@@ -113,9 +113,11 @@ export function ProjectEntry({ project, index }: ProjectEntryProps) {
           </div>
 
           {/* Description */}
-          <p className="pj-desc font-inter text-content-secondary leading-relaxed text-[14px] sm:text-[15px] md:text-base">
-            {project.description}
-          </p>
+          <div className="pj-desc flex flex-col gap-3 font-inter text-content-secondary leading-relaxed text-[14px] sm:text-[15px] md:text-base">
+            {project.description.split('\n\n').map((paragraph, pIdx) => (
+              <p key={pIdx}>{paragraph}</p>
+            ))}
+          </div>
 
           {/* Architecture */}
           <div className="pj-arch flex flex-col gap-2.5">

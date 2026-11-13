@@ -68,14 +68,14 @@ Sahib Narula is a systems engineer, AI builder, and software craftsman based in 
 # Projects
 
 ## 01. Aptlyst AI
-- **Tagline**: AI Meeting Copilot Platform
+- **Tagline**: AI Chatbot SaaS Platform
 - **Status**: In Production (v1.0.0)
-- **Overview**: Transforms raw spoken discussions into structured, action-oriented engineering specifications — removing manual summarization delays and alignment friction across engineering teams.
+- **Overview**: Aptlyst AI is an AI-powered customer interaction platform that enables businesses to build, customize, and deploy intelligent AI chatbots directly on their websites. Built with a focus on simplicity, scalability, and practical AI integration, it transforms how businesses handle customer interactions through automated, conversational experiences. From chatbot configuration and organization-based management to secure authentication and usage tracking, Aptlyst AI brings the essential infrastructure for deploying AI-powered customer support into one unified platform.
 - **Key Architecture & Features**:
-  - Real-time audio processing pipeline via WebRTC protocols.
-  - Structured spec extraction engine powered by OpenAI JSON schemas.
-  - Autonomous task generation workers mapping directly to Jira APIs.
-- **Tech Stack**: React, TypeScript, Node.js, LLMs, WebRTC.
+  - Multi-tenant organization management & role-based access control.
+  - Embeddable website widget & streaming AI conversational runtime.
+  - Secure authentication gateway with quota tracking & analytics telemetry.
+- **Tech Stack**: React, TypeScript, Node.js, LLMs, TailwindCSS.
 
 ## 02. ReviveOps AI
 - **Tagline**: Agentic Workflow Optimizer
@@ -130,7 +130,7 @@ Sahib Narula is a systems engineer, AI builder, and software craftsman based in 
 
 # Current Work
 
-- Refining real-time audio streaming pipelines for Aptlyst AI.
+- Refining real-time streaming conversational runtime and embeddable widget for Aptlyst AI.
 - Developing Kubernetes system event parsers for ReviveOps AI on staging.
 - Exploring edge-based LLM inference and streaming optimizations.
 
@@ -165,7 +165,7 @@ Sahib Narula is a systems engineer, AI builder, and software craftsman based in 
 A: Sahib Narula is a systems engineer, AI builder, and software craftsman specializing in low-latency web apps, modular AI microservices, and reactive data pipelines.
 
 **Q: What projects has Sahib built?**
-A: Sahib has built **Aptlyst AI** (an AI Meeting Copilot Platform in production) and **ReviveOps AI** (an Agentic Workflow Optimizer in beta).
+A: Sahib has built **Aptlyst AI** (an AI-powered Chatbot SaaS Platform in production) and **ReviveOps AI** (an Agentic Workflow Optimizer in beta).
 
 **Q: What is Sahib's tech stack?**
 A: TypeScript, JavaScript, Python, Go, React, FastAPI, Node.js, LangChain, WebRTC, Docker, Kubernetes, and PostgreSQL.

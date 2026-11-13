@@ -18,17 +18,17 @@ export const projects: Project[] = [
   {
     number: '01',
     name: 'APTLYST AI',
-    tagline: 'AI Meeting Copilot Platform',
+    tagline: 'AI Chatbot SaaS Platform',
     status: 'IN PRODUCTION',
     version: 'v1.0.0',
     description:
-      'Transforms raw spoken discussions into structured, action-oriented engineering specifications — removing manual summarization delays and alignment friction across engineering teams.',
+      'Aptlyst AI is an AI-powered customer interaction platform that enables businesses to build, customize, and deploy intelligent AI chatbots directly on their websites. Built with a focus on simplicity, scalability, and practical AI integration, it transforms how businesses handle customer interactions through automated, conversational experiences.\n\nFrom chatbot configuration and organization-based management to secure authentication and usage tracking, Aptlyst AI brings the essential infrastructure for deploying AI-powered customer support into one unified platform.',
     architecture: [
-      'Real-time audio processing pipeline via WebRTC protocols',
-      'Structured spec extraction engine powered by OpenAI JSON schemas',
-      'Autonomous task generation workers mapping directly to Jira APIs',
+      'Multi-tenant organization management & role-based access control',
+      'Embeddable website widget & streaming AI conversational runtime',
+      'Secure authentication gateway with quota tracking & analytics telemetry',
     ],
-    technologies: ['React', 'TypeScript', 'Node.js', 'LLMs', 'WebRTC'],
+    technologies: ['React', 'TypeScript', 'Node.js', 'LLMs', 'TailwindCSS'],
     links: {
       github: null,
       live: null,
